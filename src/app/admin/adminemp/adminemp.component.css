@@ -1,0 +1,12 @@
+.img{
+      opacity: 75%;
+}
+.all{
+      overflow: hidden;
+}
+
+table{
+overflow-y: scroll; /* has to be scroll, not auto */
+-webkit-overflow-scrolling: touch;
+}  
+

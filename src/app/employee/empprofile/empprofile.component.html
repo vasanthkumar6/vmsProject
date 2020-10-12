@@ -1,0 +1,217 @@
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!-- <div class="img">
+<div class="container emp-profile" id="x" *ngIf="dispaly" >
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img" >
+                            <img [src]="imageurl" class="mt-5" alt="propic" height="900px" width="800px">
+                            <div class="file btn btn-md btn-primary">
+                                Change Photo
+                                <input type="file" name="photo" (change)="changeimage($event.target.files[0])" (change)="submitform(ref1.value)" #ref1>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="profile-head" style="margin-top: 10%;" >
+                                    <h3 >
+                                        {{profiledata['name']}}
+                                    </h3>
+                                    <h6>
+                                        Web Developer and Designer
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" style="margin-top: 60% ;" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="dispaly">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+ 
+                        </div>
+                    </div>
+                    <div class="col-md-8" >
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{profiledata['empid']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{profiledata['name']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{profiledata['email']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{profiledata['phonenumber']}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+                            </div>
+                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Hourly Rate</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>10$/hr</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Projects</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>230</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>English Level</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Availability</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>6 months</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+    </div>
+ -->
+
+
+
+
+
+
+
+
+  
+    <div class=" card-container" style="margin-left: 250px;" *ngIf="dispaly">
+        <span class="pro">PROFILE</span>
+        <!-- <div class="profile-img" >
+            <img
+            class="round"
+            [src]="imageurl"
+            alt="user"
+            height="400px" width="400px"
+            
+        /> -->
+        <div class="col-md" >
+            <div class="profile-img" >
+                <img [src]="imageurl" class="mt-5 " alt="propic" height="400" width="400">
+                <div class="file btn btn-md btn-primary ">
+                    Change
+                    <input type="file" name="photo" (change)="changeimage($event.target.files[0])" (change)="submitform(ref1.value)" #ref1>
+                </div>
+        <!-- <div class="file btn btn-md btn-primary btn-rounded">
+            Change Photo
+            
+                <input type="file" name="photo" (change)="changeimage($event.target.files[0])" (change)="submitform(ref1.value)" #ref1>
+            </div> -->
+           
+        <!-- <img
+            class="round"
+            src="https://randomuser.me/api/portraits/women/79.jpg"
+            alt="user"
+        /> -->
+        <h3>{{profiledata['name']}}</h3>
+        <h6>{{profiledata['empid']}}</h6>
+        <h6>{{profiledata['phonenumber']}}</h6>
+        <!-- <p>
+            User interface designer and <br />
+            front-end developer
+        </p> -->
+        <div class="buttons">
+            <button class="primary">
+                Vehicle
+            </button>
+            <button class="primary ghost">
+                Car
+            </button>
+        </div>
+        <div class="skills">
+            <h6>Skills</h6>
+            <ul>
+                <li>UI / UX</li>
+                <li>Front End Development</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+    

@@ -1,0 +1,32 @@
+.bg{
+    overflow-y: hidden;
+}
+
+
+.img{
+    opacity:85%
+}
+
+
+.img1{
+     background-color: black;
+    opacity:75%
+}
+
+.img2{  
+  background-color: grey;
+
+}
+
+    
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #dddcdc;}

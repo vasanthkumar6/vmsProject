@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-center align-items-center login-container ">
+  <form class="login-form text-center "   #ref='ngForm' (ngSubmit)='submitform(ref.value)'>
+    <h1 class="mb-5 font-weight-light text-uppercase">Login</h1>
+    <div class="form-group">
+      <label for="">Role : </label> &nbsp;&nbsp;
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="a" name="role" value="admin" ngModel>
+        <label class="custom-control-label" for="a">Admin</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="s" name="role" value="security" ngModel>
+        <label class="custom-control-label" for="s">Security</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="e" name="role" value="employee" ngModel>
+        <label class="custom-control-label" for="e">Employee</label>
+      </div>
+
+
+    </div>
+
+    <!-- <div class="form-group">
+      <input type="text" class="form-control rounded-pill form-control-lg" name="email" placeholder="Email" ngModel
+        #ref1=ngModel required *ngIf='foradmin'> -->
+      <!-- validation condition -->
+      <!-- <div *ngIf='ref1.invalid && ref1.touched'>
+        <p class="text-danger"> this field is required *</p>
+      </div>
+    </div> -->
+    <!-- <h5 class="text-center" style="margin-top: -8px;">Or</h5> -->
+
+    <div class="form-group">
+      <input type="text" class="form-control rounded-pill form-control-lg" name="empid" placeholder="UserID" ngModel
+        #ref3=ngModel required>
+      <!-- validation condition -->
+      <!-- <div *ngIf='ref3.invalid && ref3.touched'>
+        <p class="text-danger"> *this field is required* EX:IMSuser1000</p>
+      </div> -->
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="Password"
+        ngModel #ref2=ngModel required minlength="8">
+      
+    
+  
+
+      <!-- validation condition -->
+      <!-- <div *ngIf='ref2.invalid && (ref2.touched || ref2.dirty)'>
+        <div *ngIf='ref2.errors.required'>
+          <p class="text-danger">*this field is required*</p>
+        </div>
+        <div *ngIf='ref2.errors.minlength'>
+          <p class="text-danger">password must be of atlest 8 char's*</p>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="forgot-link form-group d-flex justify-content-between align-items-center">
+      <!-- <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="remember" (click)="shpwd()">
+        <label class="form-check-label" for="remember">show Password</label>
+      </div> -->
+      <a routerLink="forgotpassword">Forgot Password?</a>
+    </div>
+    <button type="submit" 
+      class="btn mt-5 rounded-pill btn-lg btn-custom btn-block text-uppercase ">Login</button>
+  </form>
+</div>
+
+
+
+
+
+
+<!-- </div>
+<div class="col-4"></div>
+</div> -->
+<router-outlet></router-outlet>
+<!-- </div> -->

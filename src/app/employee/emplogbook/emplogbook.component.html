@@ -1,0 +1,27 @@
+
+
+<div class="table-responsive table-boarderless" style="margin-top: 2%;">
+    <table class="table   bg-light img">
+        <thead class="bg-dark text-white">
+    
+            <th>Emp Id</th>
+            <th>VehicalNumber</th>
+            <th>Date</th>
+            <th>Checkin</th>
+            <th>checkout</th>
+    
+        </thead>
+        <tr *ngFor="let v of logdata">
+    
+            <td>{{v.empid}}</td>
+            <td>{{v.vehiclenumber}}</td>
+            <td>{{v.date}}</td>
+            <td>{{v.checkin}}</td>
+            <td>{{v.checkout}}</td>
+            
+        </tr>
+    </table>
+</div>
+
+
+

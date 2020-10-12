@@ -1,0 +1,26 @@
+.bg{
+  opacity: 70%;
+}
+.img{
+    background-image: url(/assets/employeedashboard/business-man-2452808_1280.jpg);
+    width: 100%;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 900px;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {background-color: #dddcdc;}

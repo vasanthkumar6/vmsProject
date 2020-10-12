@@ -1,0 +1,46 @@
+
+<!--pdf-->
+<div class="row " >
+    
+    <div class="text-right"><button type="button"
+        class="btn btn-danger text-dark"  (click)="downloadPDF()"><i class="fas fa-download">pdf</i></button></div>
+
+    
+    
+    
+    <div class="ml-3 " style="margin-top: 1px;" ><button type="submit" class="btn btn-primary"
+        (click)="downloadFile()"><i class="fas fa-download">Download Excel</i></button>
+   </div>
+</div>
+
+<!--search-->
+    <div class="mt-3">
+        <label>Search</label>
+        <input type="text"   [(ngModel)]="searchterm" placeholder="Search By Id">
+    </div>
+    
+    
+
+<div class="table-responsive">
+    <table class="table   bg-light img">
+        <thead class="bg-dark text-white">
+    
+            <th>Emp Id</th>
+            <th>VehicalNumber</th>
+            <th>Date</th>
+            <th>Checkin</th>
+            <th>checkout</th>
+    
+        </thead>
+        <tr *ngFor="let v of logdata|search:searchterm">
+    
+            <td>{{v.empid}}</td>
+            <td>{{v.vehiclenumber}}</td>
+            <td>{{v.date}}</td>
+            <td>{{v.checkin}}</td>
+            <td>{{v.checkout}}</td>
+            
+        </tr>
+    </table>
+</div>
+

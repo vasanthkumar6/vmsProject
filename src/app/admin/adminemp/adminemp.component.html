@@ -1,0 +1,271 @@
+<div class="all">
+<div class="bg bg-light">
+    <!-- <h2 style="text-align:center">Security Details</h2> -->
+    </div>
+
+    <!--search-->
+
+
+<div class="mb-3">
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus" aria-hidden="true"></i>Add Employee</button>
+</div>
+<div>
+    <label>Search:</label>
+    <input type="text"   [(ngModel)]="searchterm" placeholder="Search By Id">
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="">EMPLOYEE REGISTRATION</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div>
+                    <form #ref="ngForm" (ngSubmit)=submitEmpForm(ref.value);ref.reset()>
+                    
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="name" class="form-control" name="name" placeholder="Enter Name"
+                                required minlength="4" #ref1="ngModel" ngModel>
+                            <div *ngIf="ref1.touched&& ref1.invalid" class="alert alert-danger">
+                                <div *ngIf="ref1.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref1.errors.minlength">*Atleast contain 4 characters</div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- <label>EmpId*</label>
+                            <input type="text" id="empid1" class="form-control" name="empid" placeholder="Empid" required
+                                #ref2="ngModel" pattern="[A-Z][A-Z][A-Z]\d\d\d" ngModel>
+                            <div *ngIf="ref2.invalid&&(ref2.touched||ref2.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref2.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref2.errors.pattern">*EX:-EMP100</div>
+                            </div> -->
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>VehicleNumber</label>
+                            <input type="text" id="vehi" class="form-control" name="vehiclenumber"
+                                placeholder="vehiclenumber" pattern="[A-Z][A-Z]\d\d[A-Z][A-Z]\d\d\d\d" required
+                                #ref3="ngModel" ngModel>
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref3.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref3.errors.pattern">*Format should be AP05EX5734</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>password</label>
+                            <input type="password" id="pasw" class="form-control" name="password"
+                                placeholder="Choose password" required #ref4="ngModel" ngModel>
+                            <div *ngIf="ref4.invalid&&(ref4.touched||ref4.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref4.errors.required">*Mandatory Field</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>PhoneNumber*</label>
+                            <input type="text" id="phon" class="form-control" name="phonenumber"
+                                placeholder="Enter PhoneNumber" required maxlength="10" #ref5="ngModel"
+                                pattern="(?=.*[6-9])\d\d\d\d\d\d\d\d\d\d" ngModel>
+
+                            <div *ngIf="ref5.invalid&&(ref5.touched||ref5.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref5.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref5.errors.pattern">*invalid phonenumber</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email*</label>
+                            <input type="email" id="emai" class="form-control" name="email" placeholder="Enter Email"
+                                ngModel>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-2 "><label>Gender:-</label></div>
+                            <div class="col-2 "><input type="radio" id="type1" class="" name="gender" value="male"
+                                    ngModel>
+                                <label class="">Male</label></div>
+
+                            <div class="col-3"><input type="radio" id="type2" class="" name="gender" value="female"
+                                    ngModel>
+                                <label class="">Female</label></div>
+                        </div>
+
+
+
+                        <div class="text-center mt-2">
+                            <button class="btn btn-success " type="submit">Register</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!--TABLE-->
+
+<div class="table-responsive">
+<table class="table bg-light img">
+    <thead class="bg-dark text-white">
+        <th>Name</th>
+        <th>EmpId</th>
+        <th>VehicalNumber</th>
+        <!-- <th>password</th> -->
+        <th>PhoneNumber</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tr *ngFor="let v of getdata|search:searchterm">
+        <td>{{v.name}}</td>
+        <td>{{v.empid}}</td>
+        <td>{{v.vehiclenumber}}</td>
+        <!-- <td>{{v.password}}</td> -->
+        <td>{{v.phonenumber}}</td>
+        <td>{{v.email}}</td>
+        <td>{{v.gender}}</td>
+        <td><button class="btn btn-success" data-toggle="modal" data-target="#myModal1" (click)="update(v)"><i class="far fa-edit"></i></button></td>
+        <td><button class="btn btn-danger" (click)="delete(v.empid)"><i class="fas fa-trash-alt"></i></button></td>
+        
+        
+    </tr>
+</table>
+</div>
+
+
+
+
+<!-- Modal -->
+    <div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog"> 
+
+        <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="">EMPLOYEE REGISTRATION</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div>
+                    <form #reff="ngForm" (ngSubmit)=submitEmpupdate(reff.value);reff.reset()>
+                    
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="nam" class="form-control" name="name" placeholder="Enter Name"
+                                required minlength="4" #ref1="ngModel" [ngModel]=value.name>
+                            <div *ngIf="ref1.touched&& ref1.invalid" class="alert alert-danger">
+                                <div *ngIf="ref1.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref1.errors.minlength">*Atleast contain 4 characters</div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>EmpId*</label>
+                            <input type="text" id="empid" class="form-control" name="empid" placeholder="Empid" required
+                                #ref2="ngModel" pattern="[A-Z][A-Z][A-Z]\d\d\d" [ngModel]=value.empid>
+                            <div *ngIf="ref2.invalid&&(ref2.touched||ref2.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref2.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref2.errors.pattern">*EX:-EMP100</div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>VehicleNumber</label>
+                            <input type="text" id="veh" class="form-control" name="vehiclenumber"
+                                placeholder="vehiclenumber" pattern="[A-Z][A-Z]\d\d[A-Z][A-Z]\d\d\d\d" required
+                                #ref3="ngModel" [ngModel]=value.vehiclenumber >
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref3.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref3.errors.pattern">*Format should be AP05EX5734</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>password</label>
+                            <input type="password" id="pas" class="form-control" name="password"
+                                placeholder="Choose password" required #ref4="ngModel" [ngModel]=value.password>
+                            <div *ngIf="ref4.invalid&&(ref4.touched||ref4.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref4.errors.required">*Mandatory Field</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>PhoneNumber*</label>
+                            <input type="text" id="pho" class="form-control" name="phonenumber"
+                                placeholder="Enter PhoneNumber" required maxlength="10" #ref5="ngModel"
+                                pattern="(?=.*[6-9])\d\d\d\d\d\d\d\d\d\d" [ngModel]=value.phonenumber>
+
+                            <div *ngIf="ref5.invalid&&(ref5.touched||ref5.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref5.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref5.errors.pattern">*invalid phonenumber</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email*</label>
+                            <input type="email" id="ema" class="form-control" name="email" placeholder="Enter Email"
+                            [ngModel]=value.email>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-2 "><label>Gender:-</label></div>
+                            <div class="col-2 "><input type="radio" id="type3" class="" name="gender" value="male"
+                                    [ngModel]=value.gender>
+                                <label class="">Male</label></div>
+
+                            <div class="col-3"><input type="radio" id="type4" class="" name="gender" value="female"
+                                    ngModel=value.gender>
+                                <label class="">Female</label></div>
+                        </div>
+
+
+
+                        <div class="text-center mt-2">
+                            <button class="btn btn-success " type="submit">Register</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

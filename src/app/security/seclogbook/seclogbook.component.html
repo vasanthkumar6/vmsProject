@@ -1,0 +1,222 @@
+<div class="form-group mt-3 text-right">
+    <form #up="ngForm" (ngSubmit)="uploadExcel(up.value)">
+        <input type="file" name="uploadfile" (change)="fileUpload($event)" ngModel>
+        <button class="btn btn-success" type="submit">Upload Excel</button>
+    </form>
+</div>
+
+
+<div>
+    <label>Search</label>
+    <input type="text" [(ngModel)]="searchterm" placeholder="Enter Vehicleno">
+</div>
+
+<!-- Trigger the modal with a button -->
+<div class="text-right">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i
+            class="far fa-edit"></i>checkin</button>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="">EMPLOYEE REGISTRATION</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <div>
+                    <form #ref="ngForm" (ngSubmit)="submitlogForm(ref.value)">
+
+
+                        <div class="form-group">
+                            <label>EmpId*</label>
+                            <input type="text" id="empid" class="form-control" name="empid" placeholder="Empid" required
+                                #ref2="ngModel" pattern="[A-Z][A-Z][A-Z]\d\d\d" ngModel>
+                            <div *ngIf="ref2.invalid&&(ref2.touched||ref2.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref2.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref2.errors.pattern">*EX:-EMP100</div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- <div class="form-group">
+                            <label>VehicalNumber</label>
+                            <input type="text" id="veh" class="form-control" name="vehiclenumber"
+                                placeholder="vehiclenumber" pattern="[A-Z][A-Z]\d\d[A-Z][A-Z]\d\d\d\d" required
+                                #ref3="ngModel" ngModel>
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref3.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref3.errors.pattern">*Format should be AP05EX5734</div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="dat" class="form-control" name="date" placeholder="" ngModel>
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)">
+                                <div *ngIf="ref3.errors.required"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputMDEx1">CHECK-IN</label>
+                            <input type="time" id="inputMDEx1" class="form-control" name="checkin" ngModel>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputMDEx1">CHECK-OUT</label>
+                            <input type="time" id="inputMDEx1" class="form-control" [attr.disabled]="true"
+                                name="checkout">
+                        </div>
+
+
+                        <div class="text-center mt-2">
+                            <button class="btn btn-success " type="submit">Register</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="table-responsive">
+    <table class="table table-sm  bg-light img">
+        <thead class="bg-dark text-white">
+
+            <th>Emp Id</th>
+            <th>VehicalNumber</th>
+            <th>Date</th>
+            <th>Checkin</th>
+            <th>checkout</th>
+            <th></th>
+
+        </thead>
+        <tr *ngFor="let v of logdata |securitysearch:searchterm">
+
+            <td>{{v.empid}}</td>
+            <td>{{v.vehiclenumber}}</td>
+            <td>{{v.date}}</td>
+            <td>{{v.checkin}}</td>
+            <td>{{v.checkout}}</td>
+            <td><button class="btn btn-info" data-toggle="modal" data-target="#myModal1" (click)="edit(v)"><i
+                        class="far fa-edit"></i>checkout</button>
+            </td>
+
+        </tr>
+
+    </table>
+</div>
+
+
+
+<!-- <div>
+    <label>Search</label>
+    <input type="text"   [(ngModel)]="searchterm">
+</div> -->
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="">EMPLOYEE REGISTRATION</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <div>
+                    <form #reff="ngForm" (ngSubmit)="updatelogForm(reff.value)">
+
+
+                        <div class="form-group">
+                            <label>EmpId*</label>
+                            <input type="text" id="empid" class="form-control" name="empid" placeholder="Empid" required
+                                #ref2="ngModel" pattern="[A-Z][A-Z][A-Z]\d\d\d" ngModel [attr.disabled]="true"
+                                [ngModel]="obj.empid">
+                            <div *ngIf="ref2.invalid&&(ref2.touched||ref2.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref2.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref2.errors.pattern">*EX:-EMP100</div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- <div class="form-group">
+                            <label>VehicalNumber</label>
+                            <input type="text" id="veh" class="form-control" name="vehiclenumber"
+                                placeholder="vehiclenumber" pattern="[A-Z][A-Z]\d\d[A-Z][A-Z]\d\d\d\d" required
+                                #ref3="ngModel" ngModel [attr.disabled]="true">
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)" class="alert alert-danger">
+                                <div *ngIf="ref3.errors.required">*Mandatory Field</div>
+                                <div *ngIf="ref3.errors.pattern">*Format should be AP05EX5734</div>
+                            </div>
+                        </div> -->
+
+
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="dat" class="form-control" name="date" placeholder="" required
+                                #ref3="ngModel" ngModel [attr.disabled]="true" [ngModel]="obj.date">
+
+                            <div *ngIf="ref3.invalid&&(ref3.touched||ref3.dirty)">
+                                <div *ngIf="ref3.errors.required"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputMDEx1">CHECK-IN</label>
+                            <input type="time" id="inputMDEx1" class="form-control" [attr.disabled]="true" name="time"
+                                [ngModel]="obj.time">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputMDEx1">CHECK-OUT</label>
+                            <input type="time" id="inputMDEx1" class="form-control" name="checkout" ngModel
+                                [ngModel]="obj.checkout">
+                        </div>
+
+
+                        <div class="text-center mt-2">
+                            <button class="btn btn-success " type="submit">Register</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>

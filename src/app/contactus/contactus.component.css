@@ -1,0 +1,199 @@
+ 
+
+ .img{
+  background-image: url(/assets/contactus/b.jpg);
+   width: 100%;
+   height:800px;
+   background-repeat: no-repeat;
+    background-size: cover; 
+
+} 
+@media only screen and (max-width:1000px) {
+
+  .img{
+    background-image: url(/assets/contactus/b.jpg);
+     width: 100%;
+     height: auto;
+     background-size: cover;
+  
+  }  
+ }
+
+   .card {
+    
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 210px 80px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    font-family: roboto;
+    text-align: center;
+    
+  } 
+  
+  .card-image {
+    grid-area: image;
+  }
+  .card-text {
+    grid-area: text;
+  }
+  .card-stats {
+    grid-area: stats; 
+  }
+
+
+
+  .card-image {
+    grid-area: image;
+    background: url("/assets/contactus/calljpg.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }  
+
+
+
+  
+  
+  .card-imagex {
+    grid-area: image;
+    background: url("/assets/contactus/legal-chat.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+
+  .card-image0 {
+    grid-area: image;
+    background: url(/src/assets/contactus/Commercial1.jpg);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+
+
+   
+  .card-image1 {
+    grid-area: image;
+    background: url("/assets/contactus/Commercial1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+  }
+
+
+
+  .card-text {
+    grid-area: text;
+    margin: 25px;
+  }
+  .card-text .date1 {
+  
+    font-size:13px;
+  }
+  .card-text p {
+    color: grey;
+    font-size:15px;
+    font-weight: 300;
+  }
+  .card-text h2 {
+    margin-top:0px;
+    font-size:28px;
+  }
+
+
+
+ 
+  .card-stats {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: black(255, 7, 110);
+  } 
+
+   .card-stats1 {
+    grid-area: stats; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: rgb(7, 180, 16);
+  } 
+
+.card-stats .stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: white;
+  padding:10px;
+}
+  
+.card:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+.card {
+
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin:30px;
+} 
+
+/* 
+icons */
+/* 
+.fa {
+  padding: 20px;
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+} */
+
+
+
+
+
+
+
+
+
+
+
+

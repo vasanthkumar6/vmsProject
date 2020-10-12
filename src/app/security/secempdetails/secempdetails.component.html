@@ -1,0 +1,46 @@
+<div class="bg bg-light img1">
+    <!-- <h2 style="text-align:center">Employee Details</h2> -->
+    </div><br>
+
+<div>
+    <label>search</label>
+    <input type="text" name="search" [(ngModel)]="searchterm" placeholder="Search by Id">
+</div><br>
+
+
+
+
+
+
+<!--TABLE-->
+
+<div class="table-responsive ">
+<table class="table bg-light img " >
+    <thead class="bg-dark text-white">
+        <th>Name</th>
+        <th>EmpId</th>
+        <th>VehicalNumber</th>
+        <th>PhoneNumber</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th></th>
+    </thead>
+    <tr *ngFor="let v of getdata|securitysearch:searchterm">
+        <td>{{v.name}}</td>
+        <td>{{v.empid}}</td>
+        <td>{{v.vehiclenumber}}</td>
+        <!-- <td>{{v.password}}</td> -->
+        <td>{{v.phonenumber}}</td>
+        <td>{{v.email}}</td>
+        <td>{{v.gender}}</td>
+
+        </tr>
+   </table>
+</div>
+<!-- <div class class="img2">
+    <pagination-controls  id="listing_pagination" maxSize="9" directionLinks="true" (pageChange)="page = $event" ></pagination-controls>
+  </div> -->
+
+
+
+
